@@ -23,45 +23,33 @@ export default function ContactPage() {
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", phone: "", subject: "", message: "" },
   });
 
-  function onSubmit(values: z.infer<typeof contactFormSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. We will respond shortly.",
-    });
+  function onSubmit() {
+    toast({ title: "Message Sent!", description: "We typically respond within 24 hours. Thank you for reaching out." });
     form.reset();
   }
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header */}
       <section className="bg-primary py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-primary/95"></div>
         <div className="container relative z-10 mx-auto px-4 md:px-6 text-center">
-          <motion.h1 
+          <motion.h1
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Contact Us
+            Client Services
           </motion.h1>
-          <motion.p 
-            className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto"
+          <motion.p
+            className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Whether you need a policy review, have a claim, or just a question. Our advisors are here for you.
+            Whether you have a question, need a policy review, or want to file a claim — we're here for you.
           </motion.p>
         </div>
       </section>
@@ -69,55 +57,58 @@ export default function ContactPage() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:flex-row gap-16">
-            
+
             {/* Contact Info */}
-            <div className="lg:w-1/3 space-y-10">
+            <div className="lg:w-1/3 space-y-8">
               <div>
-                <h2 className="font-serif text-3xl font-bold text-primary mb-8">Get in Touch</h2>
+                <h2 className="font-serif text-3xl font-bold text-primary mb-2">Get in Touch</h2>
+                <div className="w-12 h-1 bg-secondary mb-8" />
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0 text-secondary-foreground">
-                      <MapPin className="h-6 w-6" />
-                    </div>
+                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0"><MapPin className="h-5 w-5 text-primary" /></div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Corporate Headquarters</h3>
+                      <h3 className="font-bold text-lg mb-1">Our Office</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        100 Financial Plaza, Suite 400<br />
-                        Boston, MA 02110
+                        6798 Crosswinds Dr N #C108<br />
+                        St. Petersburg, FL 33710
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0 text-secondary-foreground">
-                      <Phone className="h-6 w-6" />
-                    </div>
+                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0"><Phone className="h-5 w-5 text-primary" /></div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Phone</h3>
-                      <p className="text-muted-foreground mb-1">Toll-free: (800) 555-0199</p>
-                      <p className="text-muted-foreground">Local: (617) 555-0198</p>
+                      <a href="tel:7273430419" className="text-muted-foreground hover:text-primary transition-colors font-medium">(727) 343-0419</a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0 text-secondary-foreground">
-                      <Mail className="h-6 w-6" />
-                    </div>
+                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0"><Mail className="h-5 w-5 text-primary" /></div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Email</h3>
-                      <p className="text-muted-foreground mb-1">hello@pinnacleinsurance.example</p>
-                      <p className="text-muted-foreground">claims@pinnacleinsurance.example</p>
+                      <h3 className="font-bold text-lg mb-2">Email</h3>
+                      <div className="space-y-1 text-sm text-muted-foreground">
+                        <div>
+                          <p className="font-semibold text-foreground text-xs uppercase tracking-wider mb-1">General</p>
+                          <a href="mailto:accountadvisor@academyagents.com" className="hover:text-primary transition-colors break-all">accountadvisor@academyagents.com</a>
+                        </div>
+                        <div className="pt-2">
+                          <p className="font-semibold text-foreground text-xs uppercase tracking-wider mb-1">Quotes</p>
+                          <a href="mailto:rose@academyagents.com" className="hover:text-primary transition-colors">rose@academyagents.com</a>
+                        </div>
+                        <div className="pt-2">
+                          <p className="font-semibold text-foreground text-xs uppercase tracking-wider mb-1">Brokers</p>
+                          <a href="mailto:brokers@academyagents.com" className="hover:text-primary transition-colors">brokers@academyagents.com</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
-                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0 text-secondary-foreground">
-                      <Clock className="h-6 w-6" />
-                    </div>
+                    <div className="bg-secondary/20 p-3 rounded-xl shrink-0"><Clock className="h-5 w-5 text-primary" /></div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Office Hours</h3>
-                      <p className="text-muted-foreground mb-1">Monday - Friday: 8:00 AM - 6:00 PM EST</p>
-                      <p className="text-muted-foreground">24/7 Emergency Claims Support</p>
+                      <h3 className="font-bold text-lg mb-1">Response Time</h3>
+                      <p className="text-muted-foreground">Typically respond within 24 hours.</p>
                     </div>
                   </div>
                 </div>
@@ -127,107 +118,71 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:w-2/3">
               <div className="bg-card border p-8 md:p-12 rounded-3xl shadow-sm">
-                <h3 className="font-serif text-2xl font-bold text-primary mb-6 border-b pb-4">Send us a message</h3>
+                <h3 className="font-serif text-2xl font-bold text-primary mb-6 border-b pb-4">Send Us a Message</h3>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="form-contact">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Full Name</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Jane Doe" {...field} className="h-12 bg-muted/30" data-testid="input-contact-name" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email Address</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="jane@example.com" {...field} className="h-12 bg-muted/30" data-testid="input-contact-email" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Phone Number (Optional)</FormLabel>
-                            <FormControl>
-                              <Input type="tel" placeholder="(555) 123-4567" {...field} className="h-12 bg-muted/30" data-testid="input-contact-phone" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="subject"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Subject</FormLabel>
-                            <FormControl>
-                              <Input placeholder="How can we help?" {...field} className="h-12 bg-muted/30" data-testid="input-contact-subject" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
+                      <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Message</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Please describe your inquiry in detail..." 
-                              className="min-h-[150px] bg-muted/30 resize-none" 
-                              {...field} 
-                              data-testid="input-contact-message"
-                            />
-                          </FormControl>
+                          <FormLabel>Full Name</FormLabel>
+                          <FormControl><Input placeholder="Jane Doe" {...field} className="h-12 bg-muted/30" data-testid="input-contact-name" /></FormControl>
                           <FormMessage />
                         </FormItem>
-                      )}
-                    />
-
-                    <Button type="submit" size="xl" className="w-full md:w-auto h-14 px-10 text-base font-bold shadow-md" data-testid="button-submit-contact">
+                      )} />
+                      <FormField control={form.control} name="email" render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email Address</FormLabel>
+                          <FormControl><Input type="email" placeholder="jane@example.com" {...field} className="h-12 bg-muted/30" data-testid="input-contact-email" /></FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField control={form.control} name="phone" render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone Number (Optional)</FormLabel>
+                          <FormControl><Input type="tel" placeholder="(727) 555-0000" {...field} className="h-12 bg-muted/30" data-testid="input-contact-phone" /></FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                      <FormField control={form.control} name="subject" render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Subject</FormLabel>
+                          <FormControl><Input placeholder="How can we help?" {...field} className="h-12 bg-muted/30" data-testid="input-contact-subject" /></FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )} />
+                    </div>
+                    <FormField control={form.control} name="message" render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Message</FormLabel>
+                        <FormControl>
+                          <Textarea placeholder="Please describe your inquiry..." className="min-h-[150px] bg-muted/30 resize-none" {...field} data-testid="input-contact-message" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )} />
+                    <Button type="submit" size="lg" className="w-full md:w-auto h-14 px-10 font-bold shadow-md" data-testid="button-submit-contact">
                       Send Message <Send className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
                 </Form>
               </div>
             </div>
-            
           </div>
         </div>
       </section>
-      
+
       {/* Map Placeholder */}
       <section className="h-[400px] w-full bg-muted relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale" />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-primary text-white p-6 rounded-2xl shadow-2xl flex flex-col items-center gap-3 transform -translate-y-8">
+          <div className="bg-primary text-white p-6 rounded-2xl shadow-2xl flex flex-col items-center gap-3">
             <div className="bg-secondary p-3 rounded-full text-primary">
               <MapPin className="h-6 w-6" />
             </div>
-            <p className="font-serif font-bold text-xl">Boston Headquarters</p>
+            <p className="font-serif font-bold text-xl">St. Petersburg, FL</p>
+            <p className="text-white/70 text-sm">6798 Crosswinds Dr N #C108</p>
           </div>
         </div>
       </section>

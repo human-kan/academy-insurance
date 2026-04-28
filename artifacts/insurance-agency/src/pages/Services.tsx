@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Car, Home, HeartPulse, Briefcase, Activity, Shield, Umbrella, ArrowRight, Check } from "lucide-react";
+import { Car, Home, HeartPulse, Briefcase, Shield, ArrowRight, Check, Anchor, Eye, PawPrint, Gem, CalendarDays, Truck, Users, HardHat, FileText, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import serviceAuto from "@/assets/images/service-auto.jpg";
@@ -9,159 +9,267 @@ import serviceLife from "@/assets/images/service-life.jpg";
 import serviceBusiness from "@/assets/images/service-business.jpg";
 import serviceHealth from "@/assets/images/service-health.jpg";
 
-export default function ServicesPage() {
-  const services = [
-    {
-      id: "auto",
-      title: "Auto Insurance",
-      icon: Car,
-      image: serviceAuto,
-      description: "Comprehensive coverage for your vehicles, keeping you safe on the road.",
-      details: "From mandatory liability coverage to comprehensive protection against theft and natural disasters, we tailor auto policies that reflect your driving habits and vehicle value. We ensure you're never left stranded.",
-      features: ["Collision & Comprehensive", "Uninsured Motorist Protection", "Roadside Assistance", "Rental Reimbursement"]
-    },
-    {
-      id: "home",
-      title: "Homeowners Insurance",
-      icon: Home,
-      image: serviceHome,
-      description: "Fortify your greatest asset and everything inside it against the unexpected.",
-      details: "Your home is more than an investment; it's where your life happens. Our robust homeowners policies cover structural damage, personal property loss, and liability, providing complete peace of mind.",
-      features: ["Dwelling Coverage", "Personal Property Protection", "Personal Liability", "Loss of Use Coverage"]
-    },
-    {
-      id: "life",
-      title: "Life Insurance",
-      icon: HeartPulse,
-      image: serviceLife,
-      description: "Ensure your family's financial stability, no matter what tomorrow brings.",
-      details: "Life insurance is the ultimate act of love. We help you navigate the complexities of term vs. whole life, calculating precise coverage needs to protect mortgages, education funds, and legacy wealth.",
-      features: ["Term Life Insurance", "Whole Life Policies", "Universal Life", "Estate Planning Solutions"]
-    },
-    {
-      id: "business",
-      title: "Business & Commercial",
-      icon: Briefcase,
-      image: serviceBusiness,
-      description: "Shield your enterprise from operational risks, liabilities, and interruptions.",
-      details: "You built your business with sweat and capital. Don't let a lawsuit or disaster tear it down. We provide comprehensive commercial packages customized for your specific industry risks.",
-      features: ["General Liability (CGL)", "Commercial Property", "Workers' Compensation", "Cyber Liability"]
-    },
-    {
-      id: "health",
-      title: "Health & Medical",
-      icon: Activity,
-      image: serviceHealth,
-      description: "Access top-tier medical care with comprehensive individual and group health plans.",
-      details: "Navigating the healthcare market is daunting. Our advisors help you compare networks, deductibles, and benefits to find the optimal health insurance strategy for your family or your employees.",
-      features: ["Individual & Family Plans", "Group Employer Benefits", "Dental & Vision Add-ons", "Medicare Supplements"]
-    }
-  ];
+const personalServices = [
+  {
+    icon: Home,
+    title: "Homeowners, Rental & Condo",
+    image: serviceHome,
+    desc: "HO3 policies with automatic re-shopping at every renewal.",
+    details: "Whether you own a home, rent, or live in a condo, we find the right policy from top Florida-rated carriers. We automatically re-shop your rates at every renewal so you always get the best deal.",
+    features: ["HO3 Homeowners Policies", "Condo & Rental Coverage", "Automatic Rate Re-Shopping", "Dwelling & Personal Property Protection"],
+  },
+  {
+    icon: Car,
+    title: "Personal Auto Insurance",
+    image: serviceAuto,
+    desc: "Multiple carriers, including exclusive options not available to the public.",
+    details: "Florida requires PIP and Property Damage minimums, but we recommend going beyond the minimum. We compare multiple carriers — including exclusive options — to find you the best combination of coverage and price.",
+    features: ["PIP & Property Damage", "Collision & Comprehensive", "Uninsured Motorist Protection", "Exclusive Carrier Access"],
+  },
+  {
+    icon: Shield,
+    title: "Flood & Wind/Hurricane",
+    image: serviceLife,
+    desc: "Florida-specific coverage for storm and water damage.",
+    details: "Standard homeowners policies don't cover flood or wind. In Florida, this is critical. We help you navigate NFIP and private flood options, as well as windstorm and hurricane coverage — properly.",
+    features: ["NFIP & Private Flood Options", "Windstorm Coverage", "Hurricane Protection", "Storm Surge Coverage"],
+  },
+  {
+    icon: Anchor,
+    title: "Watercraft & RV",
+    image: serviceAuto,
+    desc: "Coverage for boats, RVs, and recreational vehicles.",
+    details: "Your boat or RV is a major investment. We protect it whether it's on the water, the road, or in storage — with comprehensive liability and physical damage coverage.",
+    features: ["Boat & Yacht Coverage", "RV Insurance", "Liability Protection", "Agreed Value Policies"],
+  },
+  {
+    icon: Eye,
+    title: "Dental & Vision",
+    image: serviceHealth,
+    desc: "Individual dental and vision coverage plans.",
+    details: "Protect your smile and your sight. We offer individual dental and vision plans that fit your budget and provide meaningful benefits for routine and emergency care.",
+    features: ["Individual Dental Plans", "Vision Coverage", "Preventive Care Benefits", "Flexible Plan Options"],
+  },
+  {
+    icon: PawPrint,
+    title: "Pet Insurance",
+    image: serviceLife,
+    desc: "Keep your pets covered with trusted pet insurance.",
+    details: "Your pets are family. Pet insurance helps cover unexpected vet bills so you can focus on what matters — getting your pet the care they need without financial stress.",
+    features: ["Accident & Illness Coverage", "Routine Care Options", "Multiple Pet Discounts", "Top-Rated Pet Carriers"],
+  },
+  {
+    icon: Gem,
+    title: "Luxury & Collectibles",
+    image: serviceHome,
+    desc: "Jewelry, fine art, classic cars, and high-value collectibles.",
+    details: "Standard homeowners policies have strict limits on jewelry and valuables. We provide scheduled personal property coverage for high-value items at their full appraised value.",
+    features: ["Jewelry & Fine Art", "Classic & Collector Cars", "Scheduled Personal Property", "Agreed Value Coverage"],
+  },
+  {
+    icon: CalendarDays,
+    title: "Special Events & Umbrella",
+    image: serviceBusiness,
+    desc: "One-day event coverage and personal umbrella liability.",
+    details: "Hosting a wedding or large event? Need an extra layer of protection over your home and auto policies? We offer event insurance and personal umbrella policies for added peace of mind.",
+    features: ["Wedding & Event Insurance", "One-Day Event Policies", "Personal Umbrella Liability", "$1M–$5M+ Coverage Limits"],
+  },
+];
 
+const commercialServices = [
+  {
+    icon: Shield,
+    title: "General Liability",
+    desc: "Protection against third-party bodily injury & property damage claims.",
+    features: ["Bodily Injury Coverage", "Property Damage Liability", "Personal & Advertising Injury", "Products & Completed Operations"],
+  },
+  {
+    icon: Briefcase,
+    title: "Commercial Property",
+    desc: "Covers your business location, equipment & interior build-out.",
+    features: ["Building Coverage", "Business Personal Property", "Business Income/Extra Expense", "Interior Build-Out Coverage"],
+  },
+  {
+    icon: Users,
+    title: "Workers Compensation",
+    desc: "Required for 3+ employees in Florida; mandatory in construction.",
+    features: ["Medical Expense Coverage", "Lost Wage Replacement", "Employer Liability", "Florida Compliance"],
+  },
+  {
+    icon: Truck,
+    title: "Commercial Auto",
+    desc: "Fleet and business vehicle coverage.",
+    features: ["Fleet Coverage", "Business Vehicle Liability", "Non-Owned Auto Coverage", "Physical Damage Protection"],
+  },
+  {
+    icon: FileText,
+    title: "Professional Liability",
+    desc: "E&O coverage for professional service providers.",
+    features: ["Errors & Omissions", "Claims-Made Policies", "Defense Cost Coverage", "Retroactive Date Protection"],
+  },
+  {
+    icon: ClipboardList,
+    title: "Bonding",
+    desc: "Contractor and employee dishonesty bonds.",
+    features: ["Contractor License Bonds", "Employee Dishonesty Bonds", "Performance Bonds", "Fidelity Bonds"],
+  },
+  {
+    icon: HardHat,
+    title: "Contractors & Subcontractors",
+    desc: "Specialized trades coverage for all construction types.",
+    features: ["General Contractors", "Specialty Trades", "Subcontractor Coverage", "Tools & Equipment"],
+  },
+  {
+    icon: HeartPulse,
+    title: "Employee Dental & Vision",
+    desc: "Group benefits to attract and retain your best team.",
+    features: ["Group Dental Plans", "Group Vision Plans", "Flexible Benefit Designs", "Competitive Group Rates"],
+  },
+];
+
+export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Page Header */}
       <section className="bg-primary py-20 md:py-28 text-center px-4">
         <div className="container mx-auto">
-          <motion.h1 
+          <motion.h1
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Comprehensive Protection
+            Insurance Coverage
           </motion.h1>
-          <motion.p 
-            className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto"
+          <motion.p
+            className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            We don't sell generic policies. We engineer sophisticated safety nets designed specifically for your life, assets, and business.
+            Personal and commercial insurance solutions for every Floridian. We shop the market so you get the best coverage at the best price.
           </motion.p>
         </div>
       </section>
 
-      {/* Services List */}
+      {/* Personal Insurance */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Personal Insurance</h2>
+            <div className="w-16 h-1 bg-secondary mx-auto mb-4" />
+            <p className="text-muted-foreground text-lg">Protecting what matters most to you and your family.</p>
+          </div>
           <div className="space-y-24">
-            {services.map((service, index) => (
-              <motion.div 
-                key={service.id}
-                id={service.id}
+            {personalServices.slice(0, 4).map((service, index) => (
+              <motion.div
+                key={service.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className={`flex flex-col gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center`}
+                className={`flex flex-col gap-12 ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} items-center`}
               >
                 <div className="lg:w-1/2 w-full">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] md:aspect-video lg:aspect-[4/3]">
-                    <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10"></div>
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="object-cover w-full h-full"
-                    />
-                    <div className="absolute top-6 left-6 z-20 bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-lg">
-                      <service.icon className="h-8 w-8 text-primary" />
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video">
+                    <img src={service.image} alt={service.title} className="object-cover w-full h-full" />
+                    <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-lg">
+                      <service.icon className="h-7 w-7 text-primary" />
                     </div>
                   </div>
                 </div>
-                
                 <div className="lg:w-1/2 w-full">
                   <div className="inline-flex items-center gap-2 text-secondary font-bold tracking-wider uppercase text-sm mb-4">
-                    <Shield className="h-4 w-4" />
-                    Coverage Area
+                    <Shield className="h-4 w-4" />Personal Coverage
                   </div>
-                  <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">{service.title}</h2>
-                  <p className="text-xl font-medium text-foreground mb-4">{service.description}</p>
+                  <h3 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">{service.title}</h3>
+                  <p className="text-xl font-medium text-foreground mb-4">{service.desc}</p>
                   <p className="text-muted-foreground text-lg mb-8 leading-relaxed">{service.details}</p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                    {service.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="bg-secondary/20 p-1 rounded-full">
-                          <Check className="h-4 w-4 text-secondary-foreground" />
-                        </div>
-                        <span className="font-medium">{feature}</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+                    {service.features.map((feature) => (
+                      <div key={feature} className="flex items-center gap-3">
+                        <div className="bg-secondary/20 p-1 rounded-full"><Check className="h-4 w-4 text-primary" /></div>
+                        <span className="font-medium text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
-                  
-                  <Button asChild size="lg" className="w-full sm:w-auto h-12 px-8 shadow-md group" data-testid={`button-quote-${service.id}`}>
-                    <Link href={`/quote?type=${service.id}`}>
-                      Get a {service.title} Quote
-                      <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  <Button asChild size="lg" className="shadow-md group" data-testid={`button-quote-${service.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                    <Link href="/quote">
+                      Get a Quote <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Remaining personal services as cards */}
+          <div className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {personalServices.slice(4).map((service, i) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="bg-card border-t-4 border-t-secondary p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+              >
+                <div className="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors">
+                  <service.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-serif text-lg font-bold mb-2 text-primary">{service.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4">{service.desc}</p>
+                <Link href="/quote" className="inline-flex items-center text-sm font-bold text-primary hover:text-secondary transition-colors group/link">
+                  Get a Quote <ArrowRight className="ml-1 h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Umbrella / Bundling CTA */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5,5" />
-            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1" />
-            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="1" />
-          </svg>
-        </div>
-        
-        <div className="container relative z-10 mx-auto px-4 md:px-6 text-center max-w-4xl">
-          <Umbrella className="h-16 w-16 text-secondary mx-auto mb-6" />
-          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">The Power of Bundling</h2>
-          <p className="text-xl text-primary-foreground/80 mb-10 leading-relaxed">
-            Consolidate your policies. When you bundle home, auto, and life with Pinnacle, you don't just eliminate administrative headaches—you unlock significant multi-line discounts and seamless claims handling.
-          </p>
-          <Button asChild size="xl" className="h-14 px-10 text-lg font-bold bg-white text-primary hover:bg-gray-100 shadow-xl" data-testid="button-bundle-quote">
-            <Link href="/quote?type=bundle">Request a Bundle Review</Link>
-          </Button>
+      {/* Commercial Insurance */}
+      <section id="commercial" className="py-20 bg-primary scroll-mt-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Commercial Insurance</h2>
+            <div className="w-16 h-1 bg-secondary mx-auto mb-4" />
+            <p className="text-white/70 text-lg">Comprehensive business protection for Florida companies of all sizes.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+            {commercialServices.map((service, i) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all duration-300"
+                data-testid={`card-commercial-${i}`}
+              >
+                <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                  <service.icon className="h-5 w-5 text-secondary" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-white mb-2">{service.title}</h3>
+                <p className="text-white/70 text-sm mb-4">{service.desc}</p>
+                <ul className="space-y-1">
+                  {service.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-white/60 text-xs">
+                      <Check className="h-3 w-3 text-secondary shrink-0" />{f}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="bg-secondary/20 border border-secondary/40 p-8 rounded-2xl text-center max-w-xl mx-auto">
+            <h3 className="font-serif text-xl font-bold text-white mb-2">Not sure what your business needs?</h3>
+            <p className="text-white/70 mb-5">Let our commercial specialists guide you to the right coverage.</p>
+            <Button asChild size="lg" className="bg-secondary text-primary hover:bg-secondary/90 font-bold" data-testid="button-commercial-quote">
+              <Link href="/quote?type=commercial">Help Me Decide <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

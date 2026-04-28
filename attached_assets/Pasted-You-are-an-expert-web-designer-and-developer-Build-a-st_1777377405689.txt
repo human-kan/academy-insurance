@@ -1,0 +1,266 @@
+You are an expert web designer and developer. Build a stunning, premium, modern insurance agency website for "Academy Insurance Agency Inc." using the full brand data provided below. The website must feel like a high-end financial services brand — think clean whites, deep navy blues, and gold accents. Use smooth scroll animations, glassmorphism cards, and a fully responsive layout.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎨 DESIGN SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Color Palette:
+- Primary: Deep Navy #0A1F44
+- Secondary: Soft Gold/Amber #C9A84C
+- Accent: Bright White #FFFFFF
+- Background: Off-white #F9FAFB
+- Card BG: #FFFFFF with subtle drop shadow
+- Text: #1A1A2E (dark) / #6B7280 (muted)
+
+Typography:
+- Headings: Playfair Display (serif, elegant)
+- Body: Inter (clean, modern sans-serif)
+- Accent labels: Montserrat Semibold
+
+Aesthetic:
+- Premium glassmorphism cards with backdrop-blur
+- Subtle gold dividers and underlines on headings
+- Smooth entrance animations (fade-up on scroll using AOS or GSAP)
+- Sticky navigation bar with blur background on scroll
+- Rounded corners (border-radius: 16px on cards)
+- CTA buttons: gold gradient with navy text, hover lift effect
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧭 NAVIGATION BAR (Sticky, top of page)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Left: Logo — "Academy Insurance Agency" in Playfair Display with a small gold shield icon
+
+Center links:
+- Home
+- Personal Insurance (dropdown)
+- Commercial Insurance (dropdown)
+- About Us
+- Blog
+- Client Services
+
+TOP RIGHT — "Contact Now" button (gold gradient pill button) that opens a sleek MODAL FORM overlay with:
+  - Full Name (text input)
+  - Email Address (email input)
+  - Phone Number (tel input)
+  - Insurance Type (dropdown: Personal / Commercial / Not Sure)
+  - Message (textarea, 4 rows)
+  - [Submit] button in gold
+  - Small note: "We typically respond within 24 hours."
+  - Modal has navy header: "Get In Touch With Us"
+  - Close (X) button top right of modal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🦸 HERO SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Full-width hero with a dark navy + subtle gold gradient overlay on a high-quality background image of St. Petersburg, FL skyline or a professional family/business stock image.
+
+Headline (Playfair Display, 64px white):
+"Florida's Trusted Insurance Experts."
+
+Subheadline (Inter, 20px, white/80% opacity):
+"Independent. Women-Led. 75 Years of Combined Experience.
+Serving all of Florida — from Miami to Jacksonville."
+
+Two CTA buttons:
+1. [Get a Free Quote →] — Gold gradient
+2. [Call Us: (727) 343-0419] — White outline
+
+Trust bar below hero (horizontal row of 4 icons + text):
+✅ A+ BBB Rated  |  🏆 Top 35 St. Pete Agency  |  🔄 We Re-Shop Every Renewal  |  🌊 All of Florida Covered
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💼 PERSONAL INSURANCE SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Section heading: "Personal Insurance"
+Subheading: "Protecting what matters most to you and your family."
+
+Display as a 4-column responsive card grid (hover lift effect, gold top border on cards):
+
+1. 🏠 Homeowners, Rental & Condo
+   "HO3 policies with automatic re-shopping at every renewal."
+
+2. 🚗 Personal Auto Insurance
+   "Multiple carriers, including exclusive options not available to the public."
+
+3. 🌊 Flood & Wind/Hurricane
+   "Florida-specific coverage for storm and water damage."
+
+4. 🛥️ Watercraft & RV
+   "Coverage for boats, RVs, and recreational vehicles."
+
+5. 🦷 Dental & Vision
+   "Individual dental and vision coverage plans."
+
+6. 🐾 Pet Insurance
+   "Keep your pets covered with trusted pet insurance."
+
+7. 💎 Luxury & Collectibles
+   "Jewelry, fine art, classic cars, and high-value collectibles."
+
+8. 🎉 Special Events & Umbrella
+   "One-day event coverage and personal umbrella liability."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏗️ COMMERCIAL INSURANCE SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dark navy background section for contrast.
+
+Section heading (white): "Commercial Insurance"
+Subheading: "Comprehensive business protection for Florida companies."
+
+Display as 3-column card grid with white glassmorphism cards:
+
+1. 🛡️ General Liability — "Protection against third-party bodily injury & property damage claims."
+2. 🏢 Commercial Property — "Covers your business location, equipment & interior build-out."
+3. 👷 Workers Compensation — "Required for 3+ employees in Florida; mandatory in construction."
+4. 🚚 Commercial Auto — "Fleet and business vehicle coverage."
+5. ⚖️ Professional Liability — "E&O coverage for professional service providers."
+6. 📋 Bonding — "Contractor and employee dishonesty bonds."
+7. 🔨 Contractors & Subcontractors — "Specialized trades coverage."
+8. 🦷 Employee Dental & Vision — "Group benefits for your team."
+
+Include a "Help Me Decide" gold CTA card at the end: "Not sure what you need? Let our experts guide you."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 WHY CHOOSE US SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3-column layout with large gold numbers and stat/value text:
+
+1. 75+ Years — Combined team experience in the insurance industry
+2. A+ Rated — Better Business Bureau Accredited
+3. 100% Independent — We represent YOU, not any single carrier
+4. Top 35 — St. Petersburg Homeowners Insurance Agency (Expertise.com)
+5. Auto Re-Shop — We re-shop your rates at EVERY renewal automatically
+6. Women-Led — Proudly women-led agency based in St. Pete, FL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👥 MEET THE TEAM SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Section heading: "Meet Our Team"
+Subheading: "Real people. Real expertise. Here for you."
+
+5 profile cards in a row (horizontal scroll on mobile), each with:
+- Circular avatar placeholder (initials monogram in gold on navy)
+- Name
+- Role/Title
+- Extension number
+
+Team Members:
+1. Rose Wainwright — Agency Owner & Licensed Agent — Ext. 101
+   Bio: "Rose loves meeting and helping clients protect what they've worked hard for. When she's not in the office, she's scuba diving or dreaming about traveling Europe."
+
+2. Heather Swartz-Brewer — Personal Lines / Client Advisor — Ext. 102
+
+3. Christina Guzman — Office Manager / Personal Lines Advisor — Ext. 103
+
+4. Shazari Diaz — Commercial Lines / Renewal Retention Specialist — Ext. 104
+   Bio: "Shazari is passionate about protecting your business and personal assets. Outside of work, she loves to sing and read to escape reality."
+
+5. Megan Davis — Licensed Agent — Ext. 105
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 EDUCATION / BLOG SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Section heading: "Insurance Insights"
+Subheading: "Learn what you need to know before you buy."
+
+4 horizontal blog cards, each with:
+- Gold category tag
+- Bold article title
+- Short excerpt
+- "Read More →" link
+
+Articles:
+1. 🏷️ Auto Insurance — "What is PIP and How Can I Save?"
+   "Florida is a no-fault state. PIP covers 80% of your medical costs and 60% of lost wages — here's how to lower your premium."
+   Date: October 3, 2020
+
+2. 🏷️ Property Insurance — "Actual Cash Value vs. Replacement Cost: What's the Difference?"
+   "ACV pays depreciated value. RC pays for brand-new replacements. The difference could cost you thousands."
+   Date: July 22, 2020
+
+3. 🏷️ Agency Tips — "Why Use an Insurance Agent or Broker?"
+   "Rates are identical either way — but a broker works for YOU. We re-shop rates every year at no extra cost."
+   Date: June 2, 2020
+
+4. 🏷️ Commercial Insurance — "Co-Insurance Explained"
+   "Under-insuring your building can reduce your claim payout dramatically. Learn how the co-insurance clause works."
+   Date: May 19, 2020
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📬 FAQ SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Accordion-style FAQ with gold "+" toggle icons:
+
+Q: I'm buying my first home. What insurance do I need?
+A: You'll need an HO3 Homeowners Policy. Just provide us your name and property address and we'll get you a quote quickly.
+
+Q: I'm starting a business. What coverage do I need?
+A: Most businesses start with General Liability + Commercial Property. Commercial Property even covers your interior build-out if you're renting.
+
+Q: What is the minimum auto insurance required in Florida?
+A: Florida requires PIP ($10,000 minimum, no-fault) and Property Damage ($10,000 minimum). Bodily Injury is not mandatory but is highly recommended.
+
+Q: What is a deductible?
+A: Your deductible is your share of a covered loss. If your loss is less than your deductible, you pay it entirely out-of-pocket.
+
+Q: When is Workers Comp required in Florida?
+A: Workers Comp is required when you have 3 or more employees — except in construction, where it's required from employee #1.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📍 CONTACT & FOOTER SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Two-column layout:
+
+LEFT — Contact Info (navy background, white text):
+📍 6798 Crosswinds Dr N #C108, St. Petersburg, FL 33710
+📞 (727) 343-0419
+📧 accountadvisor@academyagents.com
+📧 rose@academyagents.com (Quotes)
+📧 brokers@academyagents.com (Brokers)
+⏰ Typically respond within 24 hours
+
+RIGHT — Embedded Google Map of St. Petersburg address
+
+Social Icons (gold, circular):
+Facebook | Instagram | LinkedIn | Google Business
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🦶 FOOTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Deep navy background, white/muted text.
+
+4 columns:
+1. Brand: Logo + tagline "Independent. Trusted. Florida's Own."
+2. Personal Insurance: Links to all 8 personal products
+3. Commercial Insurance: Links to all 8 commercial products
+4. Company: About, Blog, Contact, Legal, Client Services
+
+Bottom bar:
+"© 2026 Academy Insurance Agency Inc. | Managed by SMTHIN' TECHNOLOGIES | Privacy Policy | Terms of Use"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚙️ TECHNICAL REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- HTML5 + Tailwind CSS (or custom CSS)
+- Vanilla JavaScript for modal, accordion, and scroll animations
+- AOS.js for scroll entrance animations
+- Fully responsive (mobile-first)
+- Google Fonts: Playfair Display + Inter
+- No frameworks required (pure HTML/CSS/JS preferred)
+- "Contact Now" modal must work on all screen sizes
+- Fast load: optimize all assets, lazy load images
+- Semantic HTML for SEO
+- Meta title: "Academy Insurance Agency | St. Petersburg, FL"
+- Meta description: "Independent insurance agency serving all of Florida. Personal & commercial coverage. Women-led. A+ BBB rated. Call (727) 343-0419."
