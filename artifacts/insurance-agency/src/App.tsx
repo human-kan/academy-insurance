@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ChatWidget } from "@/components/ChatWidget";
 
 import HomePage from "@/pages/Home";
 import AboutPage from "@/pages/About";
@@ -42,6 +43,7 @@ function App() {
             </main>
             <Footer />
           </div>
+          <ChatWidget />
         </WouterRouter>
         <Toaster />
       </TooltipProvider>
