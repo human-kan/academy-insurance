@@ -90,7 +90,18 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/50">
-          <p>&copy; 2026 Academy Insurance Agency Inc. | Managed by SMTHIN' TECHNOLOGIES</p>
+          <p>
+            &copy; 2026 Academy Insurance Agency Inc. | Managed by{" "}
+            <a
+              href="https://smthin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-white/80 hover:text-secondary transition-colors"
+              data-testid="link-smthin"
+            >
+              SMTHIN' TECHNOLOGIES
+            </a>
+          </p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Use</a>

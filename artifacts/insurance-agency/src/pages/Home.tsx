@@ -1,8 +1,145 @@
 import { Link } from "wouter";
-import { motion } from "framer-motion";
-import { Shield, Home, Star, ArrowRight, Award, RefreshCw, MapPin, ChevronDown, Briefcase, Check } from "lucide-react";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Shield, Home, Star, ArrowRight, Award, RefreshCw, MapPin, ChevronDown, Briefcase, Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+
+const testimonials = [
+  { quote: "We have been with Academy Insurance over ten years and have always found them to be very responsive to all our needs. When our previous Insurance Carrier pulled out of Florida Rose and her team were right on top of it getting a new quote for us. I highly recommend Academy for your insurance needs.", author: "Andrew N.", role: "Customer since 2016" },
+  { quote: "Excellent rates and great customer service. Rose has always gone above and beyond for us. We own a geodesic dome home and Rose was the only broker who took the time to find great coverage and rates.", author: "Tina O.", role: "Customer since 2018" },
+  { quote: "I am very satisfied with Academy Insurance Agency and Rose Wainwright. I've been a customer for over a decade and my husband, much longer than that. Their service is exceptional and we always get prompt responses to all of our questions. Very professional.", author: "Nancy R.", role: "Customer since 2014" },
+  { quote: "The staff are very friendly, informed and knowledgeable. They go the extra mile to get the best quotes and make sure you have the coverage you need.", author: "Lynn Z.", role: "Customer since 2019" },
+  { quote: "I love the personal service. Never feel that I'm ignored. Everyone I've dealt with is knowledgeable and helpful. I've needed them in the past (leaky roof), and it was handled well and quickly.", author: "Marcelo A.", role: "Customer since 2011" },
+  { quote: "Rose has been very good at getting me the best rates for my boat, car and now my home. She is excellent at getting back to me and making sure all details are addressed.", author: "John L.", role: "Customer since 2021" },
+];
+
+function GoogleG({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
+      <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" />
+      <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" />
+      <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
+    </svg>
+  );
+}
+
+function TestimonialCarousel() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => {
+      setDirection(1);
+      setIndex((i) => (i + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(t);
+  }, [paused]);
+
+  const goTo = (i: number) => {
+    setDirection(i > index ? 1 : -1);
+    setIndex(i);
+  };
+  const next = () => { setDirection(1); setIndex((i) => (i + 1) % testimonials.length); };
+  const prev = () => { setDirection(-1); setIndex((i) => (i - 1 + testimonials.length) % testimonials.length); };
+
+  const current = testimonials[index];
+
+  return (
+    <div
+      className="max-w-3xl mx-auto"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      data-testid="testimonial-carousel"
+    >
+      <div className="relative">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 min-h-[340px] md:min-h-[300px] overflow-hidden">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <GoogleG className="h-7 w-7" />
+              <div className="leading-tight">
+                <p className="text-white text-sm font-semibold">Google Review</p>
+                <div className="flex gap-0.5 mt-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 text-secondary fill-secondary" />)}
+                </div>
+              </div>
+            </div>
+            <span className="text-white/50 text-xs font-mono" data-testid="testimonial-counter">
+              {String(index + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div className="relative">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={index}
+                custom={direction}
+                initial={{ opacity: 0, x: direction * 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction * -40 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+              >
+                <p className="text-white text-base md:text-lg leading-relaxed italic mb-6" data-testid="testimonial-quote">
+                  "{current.quote}"
+                </p>
+                <div>
+                  <p className="text-white font-bold font-serif" data-testid="testimonial-author">{current.author}</p>
+                  <p className="text-secondary text-sm">{current.role}</p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        <button
+          onClick={prev}
+          aria-label="Previous review"
+          className="absolute -left-3 md:-left-6 top-1/2 -translate-y-1/2 bg-white text-primary p-2 md:p-3 rounded-full shadow-lg hover:bg-secondary hover:text-primary transition-colors"
+          data-testid="testimonial-prev"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next review"
+          className="absolute -right-3 md:-right-6 top-1/2 -translate-y-1/2 bg-white text-primary p-2 md:p-3 rounded-full shadow-lg hover:bg-secondary hover:text-primary transition-colors"
+          data-testid="testimonial-next"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 mt-8" role="tablist" aria-label="Select review">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Go to review ${i + 1}`}
+            aria-selected={i === index}
+            className={`h-2 rounded-full transition-all ${i === index ? "w-8 bg-secondary" : "w-2 bg-white/30 hover:bg-white/60"}`}
+            data-testid={`testimonial-dot-${i}`}
+          />
+        ))}
+      </div>
+
+      <div className="text-center mt-8">
+        <a
+          href="https://www.google.com/search?q=Academy+Insurance+Agency+Inc+St+Petersburg+FL+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-white/80 hover:text-secondary text-sm font-medium underline-offset-4 hover:underline transition-colors"
+          data-testid="link-view-all-google-reviews"
+        >
+          <GoogleG className="h-4 w-4" />
+          View all reviews on Google
+          <ArrowRight className="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+  );
+}
 
 import heroBg from "@/assets/images/hero.jpg";
 import testimonialBg from "@/assets/images/testimonial-bg.jpg";
@@ -221,33 +358,20 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-primary/95" />
         </div>
         <div className="container relative z-10 mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-5">
+              <GoogleG className="h-4 w-4" />
+              <span className="text-white/90 text-xs font-semibold tracking-wide uppercase">Verified Google Reviews</span>
+            </div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Client Success Stories</h2>
-            <div className="flex justify-center gap-1 mb-2">
-              {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-secondary fill-secondary" />)}
+            <div className="flex justify-center items-center gap-2 mb-2">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-secondary fill-secondary" />)}
+              </div>
+              <span className="text-white/80 text-sm font-medium ml-2">5.0 from real customers</span>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { quote: "We have been with Academy Insurance over ten years and have always found them to be very responsive to all our needs. When our previous Insurance Carrier pulled out of Florida Rose and her team were right on top of it getting a new quote for us. I highly recommend Academy for your insurance needs.", author: "Andrew N.", role: "Customer since 2016" },
-              { quote: "Excellent rates and great customer service. Rose has always gone above and beyond for us. We own a geodesic dome home and Rose was the only broker who took the time to find great coverage and rates.", author: "Tina O.", role: "Customer since 2018" },
-              { quote: "I am very satisfied with Academy Insurance Agency and Rose Wainwright. I've been a customer for over a decade and my husband, much longer than that. Their service is exceptional and we always get prompt responses to all of our questions. Very professional.", author: "Nancy R.", role: "Customer since 2014" },
-              { quote: "The staff are very friendly, informed and knowledgeable. They go the extra mile to get the best quotes and make sure you have the coverage you need.", author: "Lynn Z.", role: "Customer since 2019" },
-              { quote: "I love the personal service. Never feel that I'm ignored. Everyone I've dealt with is knowledgeable and helpful. I've needed them in the past (leaky roof), and it was handled well and quickly.", author: "Marcelo A.", role: "Customer since 2011" },
-              { quote: "Rose has been very good at getting me the best rates for my boat, car and now my home. She is excellent at getting back to me and making sure all details are addressed.", author: "John L.", role: "Customer since 2021" },
-            ].map((test, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl">
-                <div className="mb-4 opacity-40">
-                  <svg className="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 32 32"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" /></svg>
-                </div>
-                <p className="text-white text-lg leading-relaxed mb-6 italic">"{test.quote}"</p>
-                <div>
-                  <p className="text-white font-bold font-serif">{test.author}</p>
-                  <p className="text-secondary text-sm">{test.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <TestimonialCarousel />
         </div>
       </section>
 

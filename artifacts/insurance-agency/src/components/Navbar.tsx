@@ -60,28 +60,40 @@ export function Navbar() {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-secondary ${
-                  location === link.href ? "text-secondary" : "text-foreground"
-                }`}
-                data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+          <div className="hidden lg:flex items-center gap-6">
+            <nav className="flex items-center gap-6">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-secondary ${
+                    location === link.href ? "text-secondary" : "text-foreground"
+                  }`}
+                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="flex flex-col items-end gap-1 ml-2">
+              <Button
+                size="sm"
+                className="font-semibold shadow-md bg-secondary text-primary hover:bg-secondary/90"
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-nav-contact"
               >
-                {link.label}
-              </Link>
-            ))}
-            <Button
-              size="sm"
-              className="ml-2 font-semibold shadow-md bg-secondary text-primary hover:bg-secondary/90"
-              onClick={() => setIsModalOpen(true)}
-              data-testid="button-nav-contact"
-            >
-              Contact Now
-            </Button>
-          </nav>
+                Contact Now
+              </Button>
+              <a
+                href="tel:7273430419"
+                className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-secondary transition-colors"
+                data-testid="link-nav-phone"
+              >
+                <Phone className="h-3 w-3" />
+                (727) 343-0419
+              </a>
+            </div>
+          </div>
 
           <button
             className="lg:hidden p-2 text-foreground"
