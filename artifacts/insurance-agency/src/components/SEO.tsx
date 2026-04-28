@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://academyinsuranceagency.com";
+const SITE_URL = "https://www.academyagents.com";
 const SITE_NAME = "Academy Insurance Agency";
 const DEFAULT_IMAGE = `${SITE_URL}/opengraph.jpg`;
 
