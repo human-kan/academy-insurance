@@ -3,17 +3,11 @@ import { Link } from "wouter";
 import { Shield, ArrowRight, Check, Briefcase, Users, Truck, FileText, ClipboardList, HardHat, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import serviceBusiness from "@/assets/images/service-business.jpg";
-import serviceAuto from "@/assets/images/service-auto.jpg";
-import serviceHome from "@/assets/images/service-home.jpg";
-import serviceHealth from "@/assets/images/service-health.jpg";
-import serviceLife from "@/assets/images/service-life.jpg";
-
 const commercialServices = [
   {
     icon: Shield,
     title: "General Liability",
-    image: serviceBusiness,
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop",
     desc: "Protection against third-party bodily injury & property damage claims.",
     details: "General Liability is the foundation of most commercial policies. It protects your business from third-party claims involving bodily injury, property damage, and personal/advertising injury that occur on your premises or as a result of your operations.",
     features: ["Bodily Injury Coverage", "Property Damage Liability", "Personal & Advertising Injury", "Products & Completed Operations"],
@@ -21,7 +15,7 @@ const commercialServices = [
   {
     icon: Briefcase,
     title: "Commercial Property",
-    image: serviceHome,
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
     desc: "Covers your business location, equipment & interior build-out.",
     details: "Commercial Property insurance protects the physical assets of your business — whether you own or lease. It covers your building, equipment, inventory, and even the interior build-out of your rented space if something goes wrong.",
     features: ["Building Coverage", "Business Personal Property", "Business Income/Extra Expense", "Interior Build-Out Coverage"],
@@ -29,7 +23,7 @@ const commercialServices = [
   {
     icon: Users,
     title: "Workers Compensation",
-    image: serviceLife,
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop",
     desc: "Required for 3+ employees in Florida; mandatory in construction.",
     details: "Workers Compensation covers medical expenses and lost wages for employees who are injured on the job. In Florida, it is required when you have 3 or more employees — and in construction, it's required from employee number one.",
     features: ["Medical Expense Coverage", "Lost Wage Replacement", "Employer Liability", "Florida Compliance"],
@@ -37,7 +31,7 @@ const commercialServices = [
   {
     icon: Truck,
     title: "Commercial Auto",
-    image: serviceAuto,
+    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop",
     desc: "Fleet and business vehicle coverage.",
     details: "Commercial Auto insurance covers vehicles used for business purposes, including your fleet, company trucks, and any vehicle used to transport goods or employees. It protects against liability and physical damage.",
     features: ["Fleet Coverage", "Business Vehicle Liability", "Non-Owned Auto Coverage", "Physical Damage Protection"],
@@ -45,7 +39,7 @@ const commercialServices = [
   {
     icon: FileText,
     title: "Professional Liability",
-    image: serviceBusiness,
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop",
     desc: "E&O coverage for professional service providers.",
     details: "Professional Liability (also known as Errors & Omissions) protects your business from claims that your services or advice caused financial harm to a client. Essential for consultants, agents, accountants, attorneys, and more.",
     features: ["Errors & Omissions", "Claims-Made Policies", "Defense Cost Coverage", "Retroactive Date Protection"],
@@ -53,7 +47,7 @@ const commercialServices = [
   {
     icon: ClipboardList,
     title: "Bonding",
-    image: serviceHome,
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop",
     desc: "Contractor and employee dishonesty bonds.",
     details: "Bonds protect your clients and your business. Contractor license bonds satisfy state licensing requirements, while employee dishonesty bonds protect against losses from fraudulent employee acts.",
     features: ["Contractor License Bonds", "Employee Dishonesty Bonds", "Performance Bonds", "Fidelity Bonds"],
@@ -61,7 +55,7 @@ const commercialServices = [
   {
     icon: HardHat,
     title: "Contractors & Subcontractors",
-    image: serviceLife,
+    image: "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?q=80&w=800&auto=format&fit=crop",
     desc: "Specialized trades coverage for all construction types.",
     details: "We specialize in coverage for contractors and subcontractors across all trades. Whether you're a general contractor, electrician, plumber, or roofer, we build a policy package that protects your tools, your crew, and your work.",
     features: ["General Contractors", "Specialty Trades", "Subcontractor Coverage", "Tools & Equipment"],
@@ -69,7 +63,7 @@ const commercialServices = [
   {
     icon: HeartPulse,
     title: "Employee Dental & Vision",
-    image: serviceHealth,
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
     desc: "Group benefits to attract and retain your best team.",
     details: "Offering group dental and vision benefits is one of the most cost-effective ways to attract and retain quality employees. We design flexible group benefit plans that fit your business size and budget.",
     features: ["Group Dental Plans", "Group Vision Plans", "Flexible Benefit Designs", "Competitive Group Rates"],

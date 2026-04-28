@@ -141,8 +141,9 @@ function TestimonialCarousel() {
   );
 }
 
-import heroBg from "@/assets/images/hero.jpg";
 import testimonialBg from "@/assets/images/testimonial-bg.jpg";
+
+const heroBg = "https://images.unsplash.com/photo-1582407947304-fd86f28f11c6?q=80&w=2069&auto=format&fit=crop";
 
 const personalServices = [
   "Homeowners, Rental & Condo",

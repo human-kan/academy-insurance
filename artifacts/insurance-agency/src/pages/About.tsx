@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Shield, Users, RefreshCw } from "lucide-react";
 
-import aboutTeamBg from "@/assets/images/about-team.jpg";
+const aboutTeamBg = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2069&auto=format&fit=crop";
 import rosePhoto from "@assets/rose_1777399817296.png";
 import heatherPhoto from "@assets/heather_1777399817295.jpg";
 import christinaPhoto from "@assets/christina_1777399817294.jpg";

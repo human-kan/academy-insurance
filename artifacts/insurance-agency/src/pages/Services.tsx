@@ -3,17 +3,11 @@ import { Link } from "wouter";
 import { Car, Home, Briefcase, Shield, ArrowRight, Check, Anchor, Eye, PawPrint, Gem, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import serviceAuto from "@/assets/images/service-auto.jpg";
-import serviceHome from "@/assets/images/service-home.jpg";
-import serviceLife from "@/assets/images/service-life.jpg";
-import serviceBusiness from "@/assets/images/service-business.jpg";
-import serviceHealth from "@/assets/images/service-health.jpg";
-
 const personalServices = [
   {
     icon: Home,
     title: "Homeowners, Rental & Condo",
-    image: serviceHome,
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=800&auto=format&fit=crop",
     desc: "HO3 policies with automatic re-shopping at every renewal.",
     details: "Whether you own a home, rent, or live in a condo, we find the right policy from top Florida-rated carriers. We automatically re-shop your rates at every renewal so you always get the best deal.",
     features: ["HO3 Homeowners Policies", "Condo & Rental Coverage", "Automatic Rate Re-Shopping", "Dwelling & Personal Property Protection"],
@@ -21,7 +15,7 @@ const personalServices = [
   {
     icon: Car,
     title: "Personal Auto Insurance",
-    image: serviceAuto,
+    image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop",
     desc: "Multiple carriers, including exclusive options not available to the public.",
     details: "Florida requires PIP and Property Damage minimums, but we recommend going beyond the minimum. We compare multiple carriers — including exclusive options — to find you the best combination of coverage and price.",
     features: ["PIP & Property Damage", "Collision & Comprehensive", "Uninsured Motorist Protection", "Exclusive Carrier Access"],
@@ -29,7 +23,7 @@ const personalServices = [
   {
     icon: Shield,
     title: "Flood & Wind/Hurricane",
-    image: serviceLife,
+    image: "https://images.unsplash.com/photo-1547683905-f686c993aae5?q=80&w=800&auto=format&fit=crop",
     desc: "Florida-specific coverage for storm and water damage.",
     details: "Standard homeowners policies don't cover flood or wind. In Florida, this is critical. We help you navigate NFIP and private flood options, as well as windstorm and hurricane coverage — properly.",
     features: ["NFIP & Private Flood Options", "Windstorm Coverage", "Hurricane Protection", "Storm Surge Coverage"],
@@ -37,7 +31,7 @@ const personalServices = [
   {
     icon: Anchor,
     title: "Watercraft & RV",
-    image: serviceAuto,
+    image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=800&auto=format&fit=crop",
     desc: "Coverage for boats, RVs, and recreational vehicles.",
     details: "Your boat or RV is a major investment. We protect it whether it's on the water, the road, or in storage — with comprehensive liability and physical damage coverage.",
     features: ["Boat & Yacht Coverage", "RV Insurance", "Liability Protection", "Agreed Value Policies"],
@@ -45,7 +39,7 @@ const personalServices = [
   {
     icon: Eye,
     title: "Dental & Vision",
-    image: serviceHealth,
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop",
     desc: "Individual dental and vision coverage plans.",
     details: "Protect your smile and your sight. We offer individual dental and vision plans that fit your budget and provide meaningful benefits for routine and emergency care.",
     features: ["Individual Dental Plans", "Vision Coverage", "Preventive Care Benefits", "Flexible Plan Options"],
@@ -53,7 +47,7 @@ const personalServices = [
   {
     icon: PawPrint,
     title: "Pet Insurance",
-    image: serviceLife,
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=800&auto=format&fit=crop",
     desc: "Keep your pets covered with trusted pet insurance.",
     details: "Your pets are family. Pet insurance helps cover unexpected vet bills so you can focus on what matters — getting your pet the care they need without financial stress.",
     features: ["Accident & Illness Coverage", "Routine Care Options", "Multiple Pet Discounts", "Top-Rated Pet Carriers"],
@@ -61,7 +55,7 @@ const personalServices = [
   {
     icon: Gem,
     title: "Luxury & Collectibles",
-    image: serviceHome,
+    image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=800&auto=format&fit=crop",
     desc: "Jewelry, fine art, classic cars, and high-value collectibles.",
     details: "Standard homeowners policies have strict limits on jewelry and valuables. We provide scheduled personal property coverage for high-value items at their full appraised value.",
     features: ["Jewelry & Fine Art", "Classic & Collector Cars", "Scheduled Personal Property", "Agreed Value Coverage"],
@@ -69,7 +63,7 @@ const personalServices = [
   {
     icon: CalendarDays,
     title: "Special Events & Umbrella",
-    image: serviceBusiness,
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800&auto=format&fit=crop",
     desc: "One-day event coverage and personal umbrella liability.",
     details: "Hosting a wedding or large event? Need an extra layer of protection over your home and auto policies? We offer event insurance and personal umbrella policies for added peace of mind.",
     features: ["Wedding & Event Insurance", "One-Day Event Policies", "Personal Umbrella Liability", "$1M-$5M+ Coverage Limits"],
