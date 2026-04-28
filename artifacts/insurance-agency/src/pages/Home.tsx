@@ -210,7 +210,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative py-12 md:py-16 overflow-hidden">
+      <section className="relative pt-4 pb-12 md:pt-6 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-no-repeat" style={{ backgroundImage: `url(${heroBg})`, backgroundPosition: 'center 65%' }} />
         <div className="absolute inset-0 z-10 bg-primary/80" />
         <div className="container relative z-20 mx-auto px-4 md:px-6 text-center lg:text-left">
