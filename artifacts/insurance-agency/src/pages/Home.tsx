@@ -213,7 +213,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative pt-4 pb-12 md:pt-6 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-no-repeat" style={{ backgroundImage: `url(${heroBg})`, backgroundPosition: 'center 65%' }} />
-        <div className="absolute inset-0 z-10 bg-primary/60" />
+        <div className="absolute inset-0 z-10 bg-primary/70" />
         <div className="container relative z-20 mx-auto px-4 md:px-6 text-center lg:text-left">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
