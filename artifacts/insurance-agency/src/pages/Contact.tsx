@@ -34,7 +34,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header with bg image */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-10 md:py-14 overflow-hidden">
         <div
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop')" }}

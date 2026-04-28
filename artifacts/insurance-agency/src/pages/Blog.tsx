@@ -40,7 +40,7 @@ export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header with bg image */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         <div
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2073&auto=format&fit=crop')" }}
