@@ -2,38 +2,43 @@ import { motion } from "framer-motion";
 import { Award, Shield, Users, RefreshCw } from "lucide-react";
 
 import aboutTeamBg from "@/assets/images/about-team.jpg";
+import rosePhoto from "@assets/rose_1777399817296.png";
+import heatherPhoto from "@assets/heather_1777399817295.jpg";
+import christinaPhoto from "@assets/christina_1777399817294.jpg";
+import shazariPhoto from "@assets/shazari_1777399817296.jpg";
+import meganPhoto from "@assets/megan_1777399817295.jpg";
 
 const team = [
   {
-    initials: "RW",
+    photo: rosePhoto,
     name: "Rose Wainwright",
     role: "Agency Owner & Licensed Agent",
     ext: "Ext. 101",
     bio: "Rose loves meeting and helping clients protect what they've worked hard for. When she's not in the office, she's scuba diving or dreaming about traveling Europe.",
   },
   {
-    initials: "HS",
+    photo: heatherPhoto,
     name: "Heather Swartz-Brewer",
     role: "Personal Lines / Client Advisor",
     ext: "Ext. 102",
     bio: "Heather brings deep expertise in personal lines coverage and takes pride in finding each client the perfect policy at the best possible rate.",
   },
   {
-    initials: "CG",
+    photo: christinaPhoto,
     name: "Christina Guzman",
     role: "Office Manager / Personal Lines Advisor",
     ext: "Ext. 103",
     bio: "Christina keeps the agency running smoothly and ensures every client receives prompt, professional service from start to finish.",
   },
   {
-    initials: "SD",
+    photo: shazariPhoto,
     name: "Shazari Diaz",
     role: "Commercial Lines / Renewal Retention Specialist",
     ext: "Ext. 104",
     bio: "Shazari is passionate about protecting your business and personal assets. Outside of work, she loves to sing and read to escape reality.",
   },
   {
-    initials: "MD",
+    photo: meganPhoto,
     name: "Megan Davis",
     role: "Licensed Agent",
     ext: "Ext. 105",
@@ -154,7 +159,7 @@ export default function AboutPage() {
             <p className="text-muted-foreground text-lg">Real people. Real expertise. Here for you.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {team.map((member, i) => (
               <motion.div
                 key={i}
@@ -162,16 +167,24 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="text-center group"
+                className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
                 data-testid={`card-team-${i}`}
               >
-                <div className="mx-auto h-24 w-24 rounded-full bg-primary flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow border-4 border-secondary">
-                  <span className="font-serif text-2xl font-bold text-secondary">{member.initials}</span>
+                {/* Photo */}
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="w-full h-80 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent" />
+                {/* Text */}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className="font-serif text-lg font-bold text-white leading-tight mb-0.5">{member.name}</h3>
+                  <p className="text-secondary text-xs font-semibold mb-1 leading-snug">{member.role}</p>
+                  <p className="text-white/60 text-xs mb-2">{member.ext}</p>
+                  <p className="text-white/80 text-xs leading-relaxed italic">{member.bio}</p>
                 </div>
-                <h3 className="font-serif text-lg font-bold text-primary mb-1">{member.name}</h3>
-                <p className="text-secondary text-sm font-semibold mb-1">{member.role}</p>
-                <p className="text-muted-foreground text-xs mb-3">{member.ext}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed italic">{member.bio}</p>
               </motion.div>
             ))}
           </div>
