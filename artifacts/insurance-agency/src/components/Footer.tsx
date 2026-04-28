@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { Shield, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import logoImg from "@assets/insurance_1777396126533.jpg";
 
 export function Footer() {
   return (
@@ -8,14 +9,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3" data-testid="link-footer-logo">
-              <div className="bg-white/10 p-2 rounded-lg">
-                <Shield className="h-6 w-6 text-secondary" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-lg font-bold leading-none text-white">Academy Insurance</span>
-                <span className="text-[10px] font-sans tracking-widest text-white/70 uppercase leading-none mt-1">Agency Inc.</span>
-              </div>
+            <Link href="/" className="flex items-center" data-testid="link-footer-logo">
+              <img
+                src={logoImg}
+                alt="Academy Insurance Agency"
+                className="h-16 w-16 object-contain rounded-full border border-white/20 shadow-md bg-white"
+              />
             </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs italic">
               "Independent. Trusted. Florida's Own."

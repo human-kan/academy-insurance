@@ -1,5 +1,6 @@
 import { Link, useLocation } from "wouter";
-import { Shield, Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
+import logoImg from "@assets/insurance_1777396126533.jpg";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -50,14 +51,12 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-sm">
         <div className="container mx-auto px-4 md:px-6 flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group" data-testid="link-home-logo">
-            <div className="bg-primary p-2 rounded-lg group-hover:bg-primary/90 transition-colors">
-              <Shield className="h-6 w-6 text-secondary" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-lg font-bold leading-none tracking-tight text-primary">Academy Insurance</span>
-              <span className="text-[10px] font-sans tracking-widest text-muted-foreground uppercase leading-none mt-1">Agency Inc.</span>
-            </div>
+          <Link href="/" className="flex items-center" data-testid="link-home-logo">
+            <img
+              src={logoImg}
+              alt="Academy Insurance Agency"
+              className="h-14 w-14 object-contain rounded-full border border-border shadow-sm"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-6">
