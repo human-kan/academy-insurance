@@ -38,7 +38,7 @@ export default function QuotePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-muted/30">
-      <section className="relative pt-8 pb-14 md:pt-10 md:pb-20 overflow-hidden">
+      <section className="relative py-8 md:py-12 overflow-hidden">
         <div
           className="absolute inset-0 z-0 bg-cover bg-[center_65%]"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop')" }}
