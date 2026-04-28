@@ -10,6 +10,7 @@ import { ChatWidget } from "@/components/ChatWidget";
 import HomePage from "@/pages/Home";
 import AboutPage from "@/pages/About";
 import ServicesPage from "@/pages/Services";
+import CommercialServicesPage from "@/pages/CommercialServices";
 import QuotePage from "@/pages/Quote";
 import ContactPage from "@/pages/Contact";
 import BlogPage from "@/pages/Blog";
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/services" component={ServicesPage} />
+      <Route path="/commercial" component={CommercialServicesPage} />
       <Route path="/quote" component={QuotePage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/blog" component={BlogPage} />

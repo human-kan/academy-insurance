@@ -38,8 +38,13 @@ export default function QuotePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-muted/30">
-      <section className="bg-primary py-16 md:py-20 text-center px-4">
-        <div className="container mx-auto">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop')" }}
+        />
+        <div className="absolute inset-0 z-0 bg-primary/87" />
+        <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.h1
             className="font-serif text-4xl md:text-5xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: 20 }}

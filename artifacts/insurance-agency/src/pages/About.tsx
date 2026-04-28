@@ -45,8 +45,12 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <section className="bg-primary py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay" />
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop')" }}
+        />
+        <div className="absolute inset-0 z-0 bg-primary/85" />
         <div className="container relative z-10 mx-auto px-4 md:px-6 text-center">
           <motion.h1
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"

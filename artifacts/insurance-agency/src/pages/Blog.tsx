@@ -39,7 +39,13 @@ const articles = [
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="bg-primary py-20 md:py-28 relative overflow-hidden">
+      {/* Header with bg image */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2073&auto=format&fit=crop')" }}
+        />
+        <div className="absolute inset-0 z-0 bg-primary/87" />
         <div className="container relative z-10 mx-auto px-4 md:px-6 text-center">
           <motion.h1
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"

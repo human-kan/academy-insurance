@@ -33,7 +33,13 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="bg-primary py-16 md:py-24 relative overflow-hidden">
+      {/* Header with bg image */}
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop')" }}
+        />
+        <div className="absolute inset-0 z-0 bg-primary/85" />
         <div className="container relative z-10 mx-auto px-4 md:px-6 text-center">
           <motion.h1
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
@@ -173,18 +179,18 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="h-[400px] w-full bg-muted relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale" />
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-primary text-white p-6 rounded-2xl shadow-2xl flex flex-col items-center gap-3">
-            <div className="bg-secondary p-3 rounded-full text-primary">
-              <MapPin className="h-6 w-6" />
-            </div>
-            <p className="font-serif font-bold text-xl">St. Petersburg, FL</p>
-            <p className="text-white/70 text-sm">6798 Crosswinds Dr N #C108</p>
-          </div>
-        </div>
+      {/* Real Google Maps Embed */}
+      <section className="w-full h-[420px] relative overflow-hidden border-t">
+        <iframe
+          title="Academy Insurance Agency Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.5!2d-82.73577!3d27.78972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2e32d0584de5b%3A0x69c65bc3858d0a5b!2sAcademy%20Insurance%20Agency!5e0!3m2!1sen!2sus!4v1685000000000!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </section>
     </div>
   );

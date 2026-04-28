@@ -53,7 +53,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               {["General Liability", "Commercial Property", "Workers Compensation", "Commercial Auto", "Professional Liability", "Bonding", "Contractors & Subcontractors", "Employee Dental & Vision"].map((item) => (
                 <li key={item}>
-                  <Link href="/services#commercial" className="hover:text-secondary transition-colors" data-testid={`link-footer-commercial-${item.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z-]/g, "")}`}>
+                  <Link href="/commercial" className="hover:text-secondary transition-colors" data-testid={`link-footer-commercial-${item.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z-]/g, "")}`}>
                     {item}
                   </Link>
                 </li>

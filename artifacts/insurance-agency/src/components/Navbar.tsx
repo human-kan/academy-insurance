@@ -40,7 +40,7 @@ export function Navbar() {
   const links = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Personal Insurance" },
-    { href: "/services#commercial", label: "Commercial Insurance" },
+    { href: "/commercial", label: "Commercial Insurance" },
     { href: "/about", label: "About Us" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Client Services" },

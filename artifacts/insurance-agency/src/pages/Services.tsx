@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Car, Home, HeartPulse, Briefcase, Shield, ArrowRight, Check, Anchor, Eye, PawPrint, Gem, CalendarDays, Truck, Users, HardHat, FileText, ClipboardList } from "lucide-react";
+import { Car, Home, Briefcase, Shield, ArrowRight, Check, Anchor, Eye, PawPrint, Gem, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import serviceAuto from "@/assets/images/service-auto.jpg";
@@ -72,86 +72,50 @@ const personalServices = [
     image: serviceBusiness,
     desc: "One-day event coverage and personal umbrella liability.",
     details: "Hosting a wedding or large event? Need an extra layer of protection over your home and auto policies? We offer event insurance and personal umbrella policies for added peace of mind.",
-    features: ["Wedding & Event Insurance", "One-Day Event Policies", "Personal Umbrella Liability", "$1M–$5M+ Coverage Limits"],
-  },
-];
-
-const commercialServices = [
-  {
-    icon: Shield,
-    title: "General Liability",
-    desc: "Protection against third-party bodily injury & property damage claims.",
-    features: ["Bodily Injury Coverage", "Property Damage Liability", "Personal & Advertising Injury", "Products & Completed Operations"],
-  },
-  {
-    icon: Briefcase,
-    title: "Commercial Property",
-    desc: "Covers your business location, equipment & interior build-out.",
-    features: ["Building Coverage", "Business Personal Property", "Business Income/Extra Expense", "Interior Build-Out Coverage"],
-  },
-  {
-    icon: Users,
-    title: "Workers Compensation",
-    desc: "Required for 3+ employees in Florida; mandatory in construction.",
-    features: ["Medical Expense Coverage", "Lost Wage Replacement", "Employer Liability", "Florida Compliance"],
-  },
-  {
-    icon: Truck,
-    title: "Commercial Auto",
-    desc: "Fleet and business vehicle coverage.",
-    features: ["Fleet Coverage", "Business Vehicle Liability", "Non-Owned Auto Coverage", "Physical Damage Protection"],
-  },
-  {
-    icon: FileText,
-    title: "Professional Liability",
-    desc: "E&O coverage for professional service providers.",
-    features: ["Errors & Omissions", "Claims-Made Policies", "Defense Cost Coverage", "Retroactive Date Protection"],
-  },
-  {
-    icon: ClipboardList,
-    title: "Bonding",
-    desc: "Contractor and employee dishonesty bonds.",
-    features: ["Contractor License Bonds", "Employee Dishonesty Bonds", "Performance Bonds", "Fidelity Bonds"],
-  },
-  {
-    icon: HardHat,
-    title: "Contractors & Subcontractors",
-    desc: "Specialized trades coverage for all construction types.",
-    features: ["General Contractors", "Specialty Trades", "Subcontractor Coverage", "Tools & Equipment"],
-  },
-  {
-    icon: HeartPulse,
-    title: "Employee Dental & Vision",
-    desc: "Group benefits to attract and retain your best team.",
-    features: ["Group Dental Plans", "Group Vision Plans", "Flexible Benefit Designs", "Competitive Group Rates"],
+    features: ["Wedding & Event Insurance", "One-Day Event Policies", "Personal Umbrella Liability", "$1M-$5M+ Coverage Limits"],
   },
 ];
 
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="bg-primary py-20 md:py-28 text-center px-4">
-        <div className="container mx-auto">
+      {/* Header with bg image */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop')" }}
+        />
+        <div className="absolute inset-0 z-0 bg-primary/85" />
+        <div className="container relative z-10 mx-auto px-4 md:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium mb-6"
+          >
+            <Shield className="h-4 w-4 text-secondary" />
+            Personal Insurance
+          </motion.div>
           <motion.h1
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Insurance Coverage
+            Personal Insurance Coverage
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Personal and commercial insurance solutions for every Floridian. We shop the market so you get the best coverage at the best price.
+            Protecting what matters most — your home, car, family, and everything in between. We shop the market so you get the best coverage at the best price.
           </motion.p>
         </div>
       </section>
 
-      {/* Personal Insurance */}
+      {/* Personal Insurance Detail Cards */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -192,7 +156,7 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Button asChild size="lg" className="shadow-md group" data-testid={`button-quote-${service.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <Button asChild size="lg" className="shadow-md group">
                     <Link href="/quote">
                       Get a Quote <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -227,49 +191,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Commercial Insurance */}
-      <section id="commercial" className="py-20 bg-primary scroll-mt-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Commercial Insurance</h2>
-            <div className="w-16 h-1 bg-secondary mx-auto mb-4" />
-            <p className="text-white/70 text-lg">Comprehensive business protection for Florida companies of all sizes.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
-            {commercialServices.map((service, i) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all duration-300"
-                data-testid={`card-commercial-${i}`}
-              >
-                <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center mb-4">
-                  <service.icon className="h-5 w-5 text-secondary" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-white/70 text-sm mb-4">{service.desc}</p>
-                <ul className="space-y-1">
-                  {service.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-white/60 text-xs">
-                      <Check className="h-3 w-3 text-secondary shrink-0" />{f}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="bg-secondary/20 border border-secondary/40 p-8 rounded-2xl text-center max-w-xl mx-auto">
-            <h3 className="font-serif text-xl font-bold text-white mb-2">Not sure what your business needs?</h3>
-            <p className="text-white/70 mb-5">Let our commercial specialists guide you to the right coverage.</p>
-            <Button asChild size="lg" className="bg-secondary text-primary hover:bg-secondary/90 font-bold" data-testid="button-commercial-quote">
-              <Link href="/quote?type=commercial">Help Me Decide <ArrowRight className="ml-2 h-4 w-4" /></Link>
-            </Button>
-          </div>
+      {/* CTA to Commercial */}
+      <section className="py-16 bg-muted/40">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <h3 className="font-serif text-2xl font-bold text-primary mb-3">Need Business Coverage?</h3>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">We also offer a full suite of commercial insurance solutions for Florida businesses of all sizes.</p>
+          <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 shadow-md">
+            <Link href="/commercial">View Commercial Insurance <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          </Button>
         </div>
       </section>
     </div>
