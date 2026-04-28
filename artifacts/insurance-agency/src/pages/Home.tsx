@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Shield, Home, Car, Star, ArrowRight, Award, RefreshCw, MapPin, ChevronDown, Anchor, Eye, PawPrint, Gem, CalendarDays, Truck, Users, HardHat, FileText, ClipboardList, HeartPulse, Briefcase } from "lucide-react";
+import { Shield, Home, Star, ArrowRight, Award, RefreshCw, MapPin, ChevronDown, Briefcase, Check } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -8,25 +8,25 @@ import heroBg from "@/assets/images/hero.jpg";
 import testimonialBg from "@/assets/images/testimonial-bg.jpg";
 
 const personalServices = [
-  { icon: Home, title: "Homeowners, Rental & Condo", desc: "HO3 policies with automatic re-shopping at every renewal. Whether you own a home, rent, or live in a condo, we find the right policy from top Florida-rated carriers." },
-  { icon: Car, title: "Personal Auto Insurance", desc: "Multiple carriers including exclusive options not available to the public. We compare to find you the best combination of coverage and price." },
-  { icon: Shield, title: "Flood & Wind/Hurricane", desc: "Florida-specific coverage for storm and water damage. Standard homeowners policies don't cover flood or wind — separate policies are needed." },
-  { icon: Anchor, title: "Watercraft & RV", desc: "Coverage for boats, RVs, and recreational vehicles whether on the water, the road, or in storage." },
-  { icon: Eye, title: "Dental & Vision", desc: "Individual dental and vision plans that fit your budget with meaningful benefits for routine and emergency care." },
-  { icon: PawPrint, title: "Pet Insurance", desc: "Accident and illness coverage for your pets so you can focus on their care, not the bill." },
-  { icon: Gem, title: "Luxury & Collectibles", desc: "Scheduled personal property coverage for jewelry, fine art, classic cars, and collectibles at full appraised value." },
-  { icon: CalendarDays, title: "Special Events & Umbrella", desc: "One-day event coverage and personal umbrella liability from $1M to $5M+ for added peace of mind." },
+  "Homeowners, Rental & Condo",
+  "Personal Auto Insurance",
+  "Flood & Wind/Hurricane",
+  "Watercraft & RV",
+  "Dental & Vision",
+  "Pet Insurance",
+  "Luxury & Collectibles",
+  "Special Events & Umbrella",
 ];
 
 const commercialServices = [
-  { icon: Shield, title: "General Liability", desc: "Protection against third-party bodily injury and property damage claims — the foundation of most commercial policies." },
-  { icon: Briefcase, title: "Commercial Property", desc: "Covers your business location, equipment, and interior build-out even in a rented space." },
-  { icon: Users, title: "Workers Compensation", desc: "Required for 3+ employees in Florida. In construction it's required from employee number one." },
-  { icon: Truck, title: "Commercial Auto", desc: "Fleet and business vehicle coverage including liability, physical damage, and non-owned auto." },
-  { icon: FileText, title: "Professional Liability", desc: "Errors and omissions coverage for professional service providers, protecting you from claims of negligence." },
-  { icon: ClipboardList, title: "Bonding", desc: "Contractor license bonds and employee dishonesty bonds to protect your business and satisfy client requirements." },
-  { icon: HardHat, title: "Contractors & Subcontractors", desc: "Specialized trades coverage for general contractors, specialty trades, and subcontractors." },
-  { icon: HeartPulse, title: "Employee Dental & Vision", desc: "Group dental and vision benefits to attract and retain your best team." },
+  "General Liability",
+  "Commercial Property",
+  "Workers Compensation",
+  "Commercial Auto",
+  "Professional Liability",
+  "Bonding",
+  "Contractors & Subcontractors",
+  "Employee Dental & Vision",
 ];
 
 const whyUs = [
@@ -69,54 +69,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-function AccordionItem({
-  icon: Icon, title, desc, index, openIndex, setOpenIndex, variant,
-}: {
-  icon: React.ElementType; title: string; desc: string; index: number;
-  openIndex: number | null; setOpenIndex: (i: number | null) => void; variant: "light" | "dark";
-}) {
-  const isOpen = openIndex === index;
-  const isLight = variant === "light";
-  return (
-    <div className={`rounded-xl overflow-hidden border transition-all ${isLight ? "border-border" : "border-white/20"}`}>
-      <button
-        className={`w-full flex items-center gap-4 px-5 py-4 text-left transition-colors ${
-          isOpen
-            ? isLight ? "bg-secondary/10" : "bg-white/20"
-            : isLight ? "bg-white hover:bg-muted/30" : "bg-white/5 hover:bg-white/10"
-        }`}
-        onClick={() => setOpenIndex(isOpen ? null : index)}
-      >
-        <div className={`h-10 w-10 rounded-full flex items-center justify-center shrink-0 ${isLight ? "bg-primary/8" : "bg-white/15"}`}>
-          <Icon className={`h-5 w-5 ${isLight ? "text-primary" : "text-secondary"}`} />
-        </div>
-        <span className={`font-serif font-semibold text-sm flex-1 ${isLight ? "text-primary" : "text-white"}`}>{title}</span>
-        <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} ${isLight ? "text-secondary" : "text-white/50"}`} />
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.25 }}
-        className="overflow-hidden"
-      >
-        <div className={`px-5 py-4 ${isLight ? "bg-muted/40" : "bg-white/10"}`}>
-          <p className={`text-sm leading-relaxed ${isLight ? "text-muted-foreground" : "text-white/75"}`}>{desc}</p>
-          <Link
-            href="/quote"
-            className={`inline-flex items-center gap-1 text-xs font-bold mt-3 transition-colors ${isLight ? "text-primary hover:text-secondary" : "text-secondary hover:text-secondary/80"}`}
-          >
-            Get a Quote <ArrowRight className="h-3 w-3" />
-          </Link>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
 export default function HomePage() {
-  const [personalOpen, setPersonalOpen] = useState<number | null>(null);
-  const [commercialOpen, setCommercialOpen] = useState<number | null>(null);
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
@@ -169,64 +122,74 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Personal Insurance — Accordion */}
+      {/* Coverage — compact boxes (Personal + Commercial side by side) */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Personal Insurance</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">Coverage Built Around You</h2>
             <div className="w-16 h-1 bg-secondary mx-auto mb-4" />
-            <p className="text-muted-foreground text-lg">Protecting what matters most to you and your family.</p>
+            <p className="text-muted-foreground text-lg">From your family home to your growing business — we've got Florida covered.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-5xl mx-auto">
-            {personalServices.map((service, index) => (
-              <AccordionItem
-                key={index}
-                icon={service.icon}
-                title={service.title}
-                desc={service.desc}
-                index={index}
-                openIndex={personalOpen}
-                setOpenIndex={setPersonalOpen}
-                variant="light"
-              />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90 shadow-md">
-              <Link href="/services">Explore All Personal Coverage <ArrowRight className="ml-2 h-4 w-4" /></Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto items-stretch">
+            {/* Personal box */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white border border-border rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-primary/10 p-3 rounded-xl">
+                  <Home className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-primary">Personal Insurance</h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Protecting what matters most — your home, car, family, and everything in between.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mb-8 text-sm text-foreground/80 flex-1">
+                {personalServices.map((title) => (
+                  <li key={title} className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
+                    <span>{title}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button asChild size="lg" className="w-full bg-primary text-white hover:bg-primary/90 mt-auto">
+                <Link href="/services">View Personal Insurance <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
+            </motion.div>
 
-      {/* Commercial Insurance — Accordion */}
-      <section className="py-24 bg-primary">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Commercial Insurance</h2>
-            <div className="w-16 h-1 bg-secondary mx-auto mb-4" />
-            <p className="text-white/70 text-lg">Comprehensive business protection for Florida companies.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-5xl mx-auto mb-12">
-            {commercialServices.map((service, index) => (
-              <AccordionItem
-                key={index}
-                icon={service.icon}
-                title={service.title}
-                desc={service.desc}
-                index={index}
-                openIndex={commercialOpen}
-                setOpenIndex={setCommercialOpen}
-                variant="dark"
-              />
-            ))}
-          </div>
-          <div className="bg-secondary/20 border border-secondary/40 p-8 rounded-2xl text-center max-w-xl mx-auto">
-            <h3 className="font-serif text-xl font-bold text-white mb-2">Not sure what you need?</h3>
-            <p className="text-white/70 mb-4">Let our experts guide you to the right commercial coverage.</p>
-            <Button asChild size="lg" className="bg-secondary text-primary hover:bg-secondary/90 font-bold">
-              <Link href="/commercial">View All Commercial Coverage <ArrowRight className="ml-2 h-4 w-4" /></Link>
-            </Button>
+            {/* Commercial box */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-primary text-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-secondary/20 p-3 rounded-xl">
+                  <Briefcase className="h-6 w-6 text-secondary" />
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-white">Commercial Insurance</h3>
+              </div>
+              <p className="text-white/70 leading-relaxed mb-6">
+                Comprehensive business protection for Florida companies of all sizes.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mb-8 text-sm text-white/80 flex-1">
+                {commercialServices.map((title) => (
+                  <li key={title} className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
+                    <span>{title}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button asChild size="lg" className="w-full bg-secondary text-primary hover:bg-secondary/90 font-bold mt-auto">
+                <Link href="/commercial">View Commercial Insurance <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -266,9 +229,12 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { quote: "When our home was damaged in a hurricane, Academy was there immediately. They handled everything and fought to get us a full settlement. We couldn't have done it without Rose and her team.", author: "Michael & Karen S.", role: "St. Petersburg Homeowners" },
-              { quote: "As a small contractor, I was overpaying and underinsured. Academy re-shopped my policy, got me better coverage at a lower price, and I sleep better at night knowing I'm protected.", author: "James R.", role: "Florida Contractor" },
-              { quote: "They re-shop every year automatically. I've saved money three years in a row without lifting a finger. The team is responsive and genuinely cares about their clients.", author: "Elena M.", role: "Tampa Business Owner" },
+              { quote: "We have been with Academy Insurance over ten years and have always found them to be very responsive to all our needs. When our previous Insurance Carrier pulled out of Florida Rose and her team were right on top of it getting a new quote for us. I highly recommend Academy for your insurance needs.", author: "Andrew N.", role: "Customer since 2016" },
+              { quote: "Excellent rates and great customer service. Rose has always gone above and beyond for us. We own a geodesic dome home and Rose was the only broker who took the time to find great coverage and rates.", author: "Tina O.", role: "Customer since 2018" },
+              { quote: "I am very satisfied with Academy Insurance Agency and Rose Wainwright. I've been a customer for over a decade and my husband, much longer than that. Their service is exceptional and we always get prompt responses to all of our questions. Very professional.", author: "Nancy R.", role: "Customer since 2014" },
+              { quote: "The staff are very friendly, informed and knowledgeable. They go the extra mile to get the best quotes and make sure you have the coverage you need.", author: "Lynn Z.", role: "Customer since 2019" },
+              { quote: "I love the personal service. Never feel that I'm ignored. Everyone I've dealt with is knowledgeable and helpful. I've needed them in the past (leaky roof), and it was handled well and quickly.", author: "Marcelo A.", role: "Customer since 2011" },
+              { quote: "Rose has been very good at getting me the best rates for my boat, car and now my home. She is excellent at getting back to me and making sure all details are addressed.", author: "John L.", role: "Customer since 2021" },
             ].map((test, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl">
                 <div className="mb-4 opacity-40">
