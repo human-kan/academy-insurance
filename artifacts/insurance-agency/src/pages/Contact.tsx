@@ -36,7 +36,7 @@ export default function ContactPage() {
       {/* Header with bg image */}
       <section className="relative pt-8 pb-14 md:pt-10 md:pb-20 overflow-hidden">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
+          className="absolute inset-0 z-0 bg-cover bg-[center_65%]"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop')" }}
         />
         <div className="absolute inset-0 z-0 bg-primary/85" />

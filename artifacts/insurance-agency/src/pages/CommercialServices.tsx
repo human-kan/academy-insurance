@@ -82,7 +82,7 @@ export default function CommercialServicesPage() {
       {/* Header with bg image */}
       <section className="relative pt-10 pb-20 md:pt-12 md:pb-28 overflow-hidden">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
+          className="absolute inset-0 z-0 bg-cover bg-[center_65%]"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')" }}
         />
         <div className="absolute inset-0 z-0 bg-primary/85" />

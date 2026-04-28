@@ -42,7 +42,7 @@ export default function BlogPage() {
       {/* Header with bg image */}
       <section className="relative pt-10 pb-20 md:pt-12 md:pb-28 overflow-hidden">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
+          className="absolute inset-0 z-0 bg-cover bg-[center_65%]"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2073&auto=format&fit=crop')" }}
         />
         <div className="absolute inset-0 z-0 bg-primary/87" />
