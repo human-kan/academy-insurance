@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Home, Star, ArrowRight, Award, RefreshCw, MapPin, ChevronDown, Briefcase, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import heroBgImg from "@/assets/images/hero.jpg";
+import testimonialBgImg from "@/assets/images/testimonial-bg.jpg";
 
 const testimonials = [
   { quote: "We have been with Academy Insurance over ten years and have always found them to be very responsive to all our needs. When our previous Insurance Carrier pulled out of Florida Rose and her team were right on top of it getting a new quote for us. I highly recommend Academy for your insurance needs.", author: "Andrew N.", role: "Customer since 2016" },
@@ -141,9 +143,7 @@ function TestimonialCarousel() {
   );
 }
 
-import testimonialBg from "@/assets/images/testimonial-bg.jpg";
-
-const heroBg = "https://images.unsplash.com/photo-1582407947304-fd86f28f11c6?q=80&w=2069&auto=format&fit=crop";
+const heroBg = heroBgImg;
 
 const personalServices = [
   "Homeowners, Rental & Condo",
@@ -213,7 +213,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative pt-4 pb-12 md:pt-6 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-no-repeat" style={{ backgroundImage: `url(${heroBg})`, backgroundPosition: 'center 65%' }} />
-        <div className="absolute inset-0 z-10 bg-primary/80" />
+        <div className="absolute inset-0 z-10 bg-primary/60" />
         <div className="container relative z-20 mx-auto px-4 md:px-6 text-center lg:text-left">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -355,7 +355,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={testimonialBg} alt="Clients" className="w-full h-full object-cover" />
+          <img src={testimonialBgImg} alt="Clients" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-primary/95" />
         </div>
         <div className="container relative z-10 mx-auto px-4 md:px-6">
