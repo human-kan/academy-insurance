@@ -1,0 +1,56 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "Adj44kpplXhTL-eLPdL7n"
+uri = "file://artifacts/insurance-agency/src/assets/images/hero.jpg"
+type = "image"
+title = "professional family home protection security"
+
+[[outputs]]
+id = "absnKc1W_UWMgYRqUL8NG"
+uri = "file://artifacts/insurance-agency/src/assets/images/about-team.jpg"
+type = "image"
+title = "professional office meeting insurance agents"
+
+[[outputs]]
+id = "8cGrJzpPyCS1CwTzAbr96"
+uri = "file://artifacts/insurance-agency/src/assets/images/service-auto.jpg"
+type = "image"
+title = "car driving on a scenic road"
+
+[[outputs]]
+id = "j74F-wz4hCWPR295ZxnFc"
+uri = "file://artifacts/insurance-agency/src/assets/images/service-home.jpg"
+type = "image"
+title = "beautiful suburban family home exterior"
+
+[[outputs]]
+id = "rBtUjI0qetUmspgTNc2_z"
+uri = "file://artifacts/insurance-agency/src/assets/images/service-life.jpg"
+type = "image"
+title = "happy family playing with children outdoors"
+
+[[outputs]]
+id = "71QdhcAKGQsf5p9_DgbRb"
+uri = "file://artifacts/insurance-agency/src/assets/images/service-business.jpg"
+type = "image"
+title = "modern business professionals shaking hands"
+
+[[outputs]]
+id = "5nRmK2rqqN9rbaxrTdKte"
+uri = "file://artifacts/insurance-agency/src/assets/images/service-health.jpg"
+type = "image"
+title = "healthy active lifestyle people jogging"
+
+[[outputs]]
+id = "GkpmEnL_qIB-nkJXzIijE"
+uri = "file://artifacts/insurance-agency/src/assets/images/office-building.jpg"
+type = "image"
+title = "professional modern office building exterior"
+
+[[outputs]]
+id = "V29r9JFnq1PSAnVLOWdy9"
+uri = "file://artifacts/insurance-agency/src/assets/images/testimonial-bg.jpg"
+type = "image"
+title = "happy mature couple laughing together outdoors"
