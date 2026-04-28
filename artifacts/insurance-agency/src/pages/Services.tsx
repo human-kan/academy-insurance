@@ -80,7 +80,7 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header with bg image */}
-      <section className="relative py-12 md:py-16 overflow-hidden">
+      <section className="relative pt-10 pb-20 md:pt-12 md:pb-28 overflow-hidden">
         <div
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop')" }}
