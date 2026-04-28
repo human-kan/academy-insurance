@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Car, Home, Briefcase, Shield, ArrowRight, Check, Anchor, Eye, PawPrint, Gem, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const personalServices = [
   {
@@ -73,6 +74,11 @@ const personalServices = [
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Personal Insurance | Home, Auto, Flood & More | Academy Insurance St. Petersburg"
+        description="Explore personal insurance options from Academy Insurance Agency in St. Pete, FL — homeowners, auto, flood, boat, dental, pet, jewelry, and wedding insurance. Free quotes for all of Florida."
+        path="/services"
+      />
       {/* Header with bg image */}
       <section className="relative py-10 md:py-14 overflow-hidden">
         <div

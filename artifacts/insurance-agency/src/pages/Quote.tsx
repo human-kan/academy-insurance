@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Shield, Clock, Phone, ArrowRight } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -38,6 +39,11 @@ export default function QuotePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-muted/30">
+      <SEO
+        title="Get a Free Insurance Quote | Academy Insurance Agency St. Petersburg, FL"
+        description="Request a free insurance quote from Academy Insurance Agency. We shop multiple top-rated carriers to find you the best coverage and rate in Florida. Takes just minutes."
+        path="/quote"
+      />
       <section className="relative py-8 md:py-12 overflow-hidden">
         <div
           className="absolute inset-0 z-0 bg-cover bg-[center_65%]"

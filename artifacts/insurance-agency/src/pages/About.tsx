@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Shield, Users, RefreshCw } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const aboutTeamBg = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2069&auto=format&fit=crop";
 import rosePhoto from "@assets/rose_1777399817296.png";
@@ -49,6 +50,11 @@ const team = [
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="About Us | Women-Led Insurance Team in St. Petersburg, FL"
+        description="Meet the Academy Insurance Agency team — Rose Wainwright and her expert staff in St. Petersburg, FL. Over 75 years of combined insurance experience serving Florida families and businesses."
+        path="/about"
+      />
       {/* Header */}
       <section className="relative py-10 md:py-14 overflow-hidden">
         <div

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Home, Star, ArrowRight, Award, RefreshCw, MapPin, ChevronDown, Briefcase, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import heroBgImg from "@/assets/images/hero.jpg";
 import testimonialBgImg from "@/assets/images/testimonial-bg.jpg";
 
@@ -210,6 +211,11 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Academy Insurance Agency | St. Petersburg, FL Independent Insurance"
+        description="Independent, women-led insurance agency in St. Petersburg, FL. 75+ years combined experience. We shop the market for the best auto, home, flood, and commercial insurance rates across all of Florida."
+        path="/"
+      />
       {/* Hero */}
       <section className="relative pt-4 pb-12 md:pt-6 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-no-repeat" style={{ backgroundImage: `url(${heroBg})`, backgroundPosition: 'center 65%' }} />

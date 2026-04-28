@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -33,6 +34,11 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Contact Us | Academy Insurance Agency | (727) 343-0419 | St. Petersburg, FL"
+        description="Contact Academy Insurance Agency in St. Petersburg, FL. Call (727) 343-0419, send us a message, or stop by. We serve all of Florida and are ready to help with your insurance needs."
+        path="/contact"
+      />
       {/* Header with bg image */}
       <section className="relative py-8 md:py-12 overflow-hidden">
         <div

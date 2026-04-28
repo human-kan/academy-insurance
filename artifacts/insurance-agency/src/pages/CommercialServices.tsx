@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Shield, ArrowRight, Check, Briefcase, Users, Truck, FileText, ClipboardList, HardHat, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const commercialServices = [
   {
@@ -73,6 +74,11 @@ const commercialServices = [
 export default function CommercialServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Commercial Insurance | Business Coverage in Florida | Academy Insurance"
+        description="Protect your Florida business with Academy Insurance Agency. General liability, BOP, workers' comp, commercial auto, professional liability, and more. Serving Tampa Bay and all of Florida."
+        path="/commercial"
+      />
       {/* Header with bg image */}
       <section className="relative py-10 md:py-14 overflow-hidden">
         <div

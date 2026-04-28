@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const articles = [
   {
@@ -39,6 +40,11 @@ const articles = [
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Insurance Tips & Resources Blog | Academy Insurance Agency St. Pete"
+        description="Insurance tips, Florida coverage guides, and expert advice from the Academy Insurance Agency team in St. Petersburg, FL. Stay informed on home, auto, flood, and business insurance."
+        path="/blog"
+      />
       {/* Header with bg image */}
       <section className="relative py-10 md:py-14 overflow-hidden">
         <div
