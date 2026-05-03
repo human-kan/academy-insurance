@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, PhoneCall } from "lucide-react";
 import logoImg from "@assets/insurance_1777396126533.jpg";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,7 @@ export function Navbar() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof contactSchema>>({
@@ -32,10 +33,35 @@ export function Navbar() {
     defaultValues: { name: "", email: "", phone: "", insuranceType: "", message: "" },
   });
 
-  function onSubmit() {
-    toast({ title: "Message Sent!", description: "We typically respond within 24 hours." });
-    form.reset();
-    setIsModalOpen(false);
+  async function onSubmit(values: z.infer<typeof contactSchema>) {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/vapi-call", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.name,
+          phone: values.phone,
+          email: values.email,
+          subject: values.insuranceType,
+          message: values.message,
+        }),
+      });
+
+      const data = await response.json() as { success?: boolean; error?: string };
+
+      if (!response.ok || !data.success) {
+        toast({ title: "Message Received!", description: data.error ?? "We'll follow up by phone shortly." });
+      } else {
+        toast({ title: "We're Calling You Now!", description: "Our agent is dialing your number — pick up and we'll help you right away." });
+      }
+    } catch {
+      toast({ title: "Message Received!", description: "We'll reach out to you shortly." });
+    } finally {
+      setIsSubmitting(false);
+      form.reset();
+      setIsModalOpen(false);
+    }
   }
 
   const links = [
@@ -144,7 +170,10 @@ export function Navbar() {
         <DialogContent className="sm:max-w-lg">
           <DialogHeader className="bg-primary -mx-6 -mt-6 px-6 pt-6 pb-4 rounded-t-lg">
             <DialogTitle className="font-serif text-2xl text-white">Get In Touch With Us</DialogTitle>
-            <p className="text-white/70 text-sm mt-1">We typically respond within 24 hours.</p>
+            <p className="text-white/70 text-sm mt-1 flex items-center gap-1.5">
+              <PhoneCall className="h-3.5 w-3.5 shrink-0" />
+              Enter your phone number and we'll call you instantly.
+            </p>
           </DialogHeader>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-2" data-testid="form-modal-contact">
@@ -198,8 +227,12 @@ export function Navbar() {
                   <FormMessage />
                 </FormItem>
               )} />
-              <Button type="submit" className="w-full bg-secondary text-primary hover:bg-secondary/90 font-bold" data-testid="button-modal-submit">
-                Submit
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-secondary text-primary hover:bg-secondary/90 font-bold" data-testid="button-modal-submit">
+                {isSubmitting ? (
+                  <><PhoneCall className="mr-2 h-4 w-4 animate-pulse" />Connecting…</>
+                ) : (
+                  <><PhoneCall className="mr-2 h-4 w-4" />Call Me Now</>
+                )}
               </Button>
             </form>
           </Form>
