@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, PhoneCall } from "lucide-react";
 import { SEO } from "@/components/SEO";
 
 import { Button } from "@/components/ui/button";
@@ -14,22 +15,55 @@ import { useToast } from "@/hooks/use-toast";
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().optional(),
+  phone: z.string().min(10, "A valid phone number is required so we can call you back"),
   subject: z.string().min(2, "Subject is required"),
   message: z.string().min(10, "Please provide more detail in your message"),
 });
 
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
 export default function ContactPage() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<z.infer<typeof contactFormSchema>>({
+  const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", phone: "", subject: "", message: "" },
   });
 
-  function onSubmit() {
-    toast({ title: "Message Sent!", description: "We typically respond within 24 hours. Thank you for reaching out." });
-    form.reset();
+  async function onSubmit(values: ContactFormValues) {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/vapi-call", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json() as { success?: boolean; error?: string };
+
+      if (!response.ok || !data.success) {
+        toast({
+          title: "Message Received",
+          description: data.error ?? "We received your message and will follow up by phone shortly.",
+        });
+      } else {
+        toast({
+          title: "We're Calling You Now!",
+          description: "Our agent is dialing your number — pick up and we'll help you right away.",
+        });
+      }
+
+      form.reset();
+    } catch {
+      toast({
+        title: "Message Received",
+        description: "We received your inquiry and will reach out to you shortly.",
+      });
+      form.reset();
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -123,6 +157,17 @@ export default function ContactPage() {
                       <p className="text-muted-foreground">Typically respond within 24 hours.</p>
                     </div>
                   </div>
+
+                  {/* Instant callback callout */}
+                  <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 flex items-start gap-3">
+                    <PhoneCall className="h-5 w-5 text-secondary mt-0.5 shrink-0" />
+                    <div>
+                      <p className="font-semibold text-primary text-sm">Instant Callback</p>
+                      <p className="text-muted-foreground text-sm mt-0.5">
+                        Submit the form with your phone number and our agent will call you back immediately.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -130,7 +175,11 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:w-2/3">
               <div className="bg-card border p-8 md:p-12 rounded-3xl shadow-sm">
-                <h3 className="font-serif text-2xl font-bold text-primary mb-6 border-b pb-4">Send Us a Message</h3>
+                <h3 className="font-serif text-2xl font-bold text-primary mb-2 border-b pb-4">Send Us a Message</h3>
+                <p className="text-sm text-muted-foreground mt-3 mb-6 flex items-center gap-1.5">
+                  <PhoneCall className="h-4 w-4 text-secondary shrink-0" />
+                  Include your phone number and we'll call you right back.
+                </p>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="form-contact">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -152,7 +201,10 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <FormField control={form.control} name="phone" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone Number (Optional)</FormLabel>
+                          <FormLabel>
+                            Phone Number
+                            <span className="ml-1 text-secondary text-xs font-semibold">(required — we'll call you!)</span>
+                          </FormLabel>
                           <FormControl><Input type="tel" placeholder="(727) 555-0000" {...field} className="h-12 bg-muted/30" data-testid="input-contact-phone" /></FormControl>
                           <FormMessage />
                         </FormItem>
@@ -174,8 +226,18 @@ export default function ContactPage() {
                         <FormMessage />
                       </FormItem>
                     )} />
-                    <Button type="submit" size="lg" className="w-full md:w-auto h-14 px-10 font-bold shadow-md" data-testid="button-submit-contact">
-                      Send Message <Send className="ml-2 h-4 w-4" />
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full md:w-auto h-14 px-10 font-bold shadow-md"
+                      disabled={isSubmitting}
+                      data-testid="button-submit-contact"
+                    >
+                      {isSubmitting ? (
+                        <>Connecting… <PhoneCall className="ml-2 h-4 w-4 animate-pulse" /></>
+                      ) : (
+                        <>Send Message &amp; Get a Callback <Send className="ml-2 h-4 w-4" /></>
+                      )}
                     </Button>
                   </form>
                 </Form>
